@@ -93,6 +93,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px;margin-top:28px}
 .event-card{background:var(--white);border:1px solid var(--linen2);padding:24px 22px;transition:transform .18s;display:flex;flex-direction:column;border-radius:12px}
 .event-card:hover{transform:translateY(-3px)}
+.event-thumb{width:100%;aspect-ratio:1;object-fit:cover;display:block;border-radius:8px;margin-bottom:16px;background:var(--linen)}
 .event-date{font-family:var(--sans);font-size:9.5px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
 .event-name{font-family:var(--serif);font-weight:700;font-style:italic;font-size:18px;color:var(--navy);margin-bottom:6px;line-height:1.2}
 .event-desc{font-family:var(--serif);font-size:13.5px;color:#5a4a38;line-height:1.65;flex:1;margin-bottom:14px}
@@ -120,7 +121,9 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .past-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:0;margin-top:32px;border-top:1px solid rgba(255,255,255,.1);border-left:1px solid rgba(255,255,255,.1)}
 .past-card{border-right:1px solid rgba(255,255,255,.1);border-bottom:1px solid rgba(255,255,255,.1);padding:24px 20px;transition:background .15s;cursor:pointer}
 .past-card:hover{background:var(--navy2)}
-.pe-thumb{width:100%;height:120px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:12px;border-radius:8px}
+a.past-card{display:block;text-decoration:none}
+.pe-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.pe-thumb{width:100%;aspect-ratio:1;overflow:hidden;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:30px;margin-bottom:12px;border-radius:8px}
 .pe-date{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(240,236,223,.4);margin-bottom:4px}
 .pe-name{font-family:var(--serif);font-weight:700;font-style:italic;font-size:16px;color:var(--gold);margin-bottom:5px;line-height:1.2}
 .pe-desc{font-family:var(--serif);font-size:13px;color:rgba(240,236,223,.6);line-height:1.6;margin-bottom:7px}
@@ -365,32 +368,18 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
     <div class="section-title">FEATURED EVENTS</div>
     <div class="events-grid">
       <div class="event-card">
-        <div class="event-date">Sat, Apr 5 · 1:00–3:30 pm</div>
-        <div class="event-name">So You Think You're a Bad Artist?</div>
-        <div class="event-desc">Self-guided art at a cosy café. Oil pastel, markers, colour pencil — you choose. All welcome.</div>
-        <div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">$15</span></div>
-        <span class="btn btn-outline btn-sm" onclick="showPage('events')" style="margin-top:auto">View More</span>
+        <img class="event-thumb" src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=500,height=500/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"><div class="event-date">Sun, Sep 27 · 1:00–3:30 pm</div>
+        <div class="event-name">So You Think You're a Bad Artist? Ep.17</div>
+        <div class="event-desc">Self-guided art at a cosy café. Colour pencil, markers, oil pastel — you choose. Prompts if you want them. All levels welcome. Co-hosted with Jen.</div>
+        <div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Location on RSVP</span><span class="event-tag">$12</span></div>
+        <a class="btn btn-outline btn-sm" href="https://luma.com/swzvlct9" target="_blank" rel="noopener" style="margin-top:auto">Register on Luma →</a>
       </div>
       <div class="event-card">
-        <div class="event-date">Sat, Apr 12 · 2:00–4:00 pm</div>
-        <div class="event-name">Meal Prep Made Easy — Part 1</div>
-        <div class="event-desc">Learn practical meal prep skills together. Share recipes, build habits, eat well.</div>
-        <div class="event-tags"><span class="event-tag hl">Workshop</span><span class="event-tag">$20</span></div>
-        <span class="btn btn-outline btn-sm" onclick="showPage('workshops')" style="margin-top:auto">View More</span>
-      </div>
-      <div class="event-card">
-        <div class="event-date">Sun, Apr 20 · 11:00 am</div>
-        <div class="event-name">Slow Sunday Journaling</div>
-        <div class="event-desc">Creative reflection and mindfulness journaling at a sunny café. No agenda, just presence.</div>
-        <div class="event-tags"><span class="event-tag">Slow Living Club</span><span class="event-tag">Free</span></div>
-        <span class="btn btn-outline btn-sm" onclick="showPage('clubs')" style="margin-top:auto">View More</span>
-      </div>
-      <div class="event-card">
-        <div class="event-date">Sat, Apr 26 · 1:00 pm</div>
-        <div class="event-name">Photography Walk — Distillery</div>
-        <div class="event-desc">A visual storytelling walk through the Distillery District. Bring your phone or camera.</div>
-        <div class="event-tags"><span class="event-tag">Visual Storytelling</span><span class="event-tag">Free</span></div>
-        <span class="btn btn-outline btn-sm" onclick="showPage('clubs')" style="margin-top:auto">View More</span>
+        <img class="event-thumb" src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=500,height=500/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"><div class="event-date">Sun, Oct 11 · 1:00–3:30 pm</div>
+        <div class="event-name">So You Think You're a Bad Artist? Ep.18</div>
+        <div class="event-desc">Self-guided art at a cosy café. Colour pencil, markers, oil pastel — you choose. Prompts if you want them. All levels welcome.</div>
+        <div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Shuyi Tealicious</span><span class="event-tag">$12</span></div>
+        <a class="btn btn-outline btn-sm" href="https://luma.com/8wfrulwf" target="_blank" rel="noopener" style="margin-top:auto">Register on Luma →</a>
       </div>
     </div>
     <span class="btn btn-dark" onclick="showPage('events')" style="margin-top:32px;display:inline-block">View All Events →</span>
@@ -416,16 +405,17 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
     </div>
   </section>
 
-  <section style="background:var(--navy);padding:64px 56px;border-top:1px solid rgba(255,255,255,.06)">
+  <section class="pad" style="background:var(--navy);border-top:1px solid rgba(255,255,255,.06)">
     <div class="navy-eyebrow">Moments we've shared</div>
-    <div class="navy-title" style="font-size:clamp(36px,4vw,54px);margin-bottom:10px">PAST EVENTS</div>
+    <div class="navy-title" style="font-size:clamp(38px,5vw,64px);letter-spacing:-1.5px;margin-bottom:10px">PAST EVENTS</div>
     <p style="font-family:var(--serif);font-size:16px;color:rgba(240,236,223,.65);max-width:500px;line-height:1.7;margin-bottom:0">Every event leaves something behind — artwork, connections, memories.</p>
     <div class="past-grid">
-      <div class="past-card"><div class="pe-thumb">🎨</div><div class="pe-date">March 2025</div><div class="pe-name">Bad Artist Session — Spring</div><div class="pe-desc">Oil pastels, warm light, 22 strangers becoming friends.</div><div class="pe-count">22 attendees · 22 works</div></div>
-      <div class="past-card"><div class="pe-thumb">🍜</div><div class="pe-date">February 2025</div><div class="pe-name">Meal Prep Workshop #1</div><div class="pe-desc">Batch cooking, pantry staples, and lots of recipes exchanged.</div><div class="pe-count">16 attendees · 3-part series</div></div>
-      <div class="past-card"><div class="pe-thumb">📷</div><div class="pe-date">January 2025</div><div class="pe-name">Photography Walk — Chinatown</div><div class="pe-desc">Two hours, one neighbourhood, twelve photographers.</div><div class="pe-count">12 attendees · 200+ photos</div></div>
-      <div class="past-card"><div class="pe-thumb">✏️</div><div class="pe-date">December 2024</div><div class="pe-name">Holiday Bad Artist Session</div><div class="pe-desc">Festive prompts, warm drinks, first-timers making something.</div><div class="pe-count">30 attendees · Sold out</div></div>
+      <a class="past-card" href="https://luma.com/8tivbx2w" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"></div><div class="pe-date">Sep 13, 2026</div><div class="pe-name">Bad Artist? Ep.16</div><div class="pe-desc">Self-guided art at BKookies Cafe.</div><div class="pe-count">11 guests</div></a>
+      <a class="past-card" href="https://luma.com/79jorhkr" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/a7/364bc871-bf8c-43ab-beae-a9477d7c313b.png" alt="" loading="lazy"></div><div class="pe-date">Jun 21, 2026</div><div class="pe-name">Wendy's Mini Hobby Hop</div><div class="pe-desc">Two community-led workshops celebrating the hobbies in our community.</div><div class="pe-count">18 guests</div></a>
+      <a class="past-card" href="https://luma.com/8ljg7zse" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/gallery-images/7t/2758125c-8e84-4ff7-9dd9-a018bd0024ba.png" alt="" loading="lazy"></div><div class="pe-date">Aug 20, 2026</div><div class="pe-name">Toronto 20s Social Meetup</div><div class="pe-desc">A chill evening at Future Bistro for twenty-somethings to widen their circle.</div><div class="pe-count">10 guests</div></a>
+      <a class="past-card" href="https://luma.com/p8cg8ktb" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/oq/5855b4b4-f843-473c-bdc6-315918e494d2.png" alt="" loading="lazy"></div><div class="pe-date">Nov 29, 2025</div><div class="pe-name">Hobby Hop 2 + Flea Market</div><div class="pe-desc">Workshops, makers and a flea market at Wychwood Barns.</div></a>
     </div>
+    <span class="btn btn-gold" onclick="showPage('events','past-events')" style="margin-top:32px;display:inline-block">View All Past Events →</span>
   </section>
 
   <section class="pad" style="background:var(--white);border-top:1px solid var(--linen2)">
@@ -476,22 +466,35 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
     <div class="section-eyebrow">Upcoming</div>
     <div class="section-title" style="font-size:clamp(32px,4vw,50px)">ALL UPCOMING EVENTS</div>
     <div class="events-grid">
-      <div class="event-card"><div class="event-date">Sat, Apr 5 · 1:00–3:30 pm</div><div class="event-name">So You Think You're a Bad Artist?</div><div class="event-desc">Self-guided art session at a cosy café. Oil pastel, markers, colour pencil — you choose. All skill levels welcome.</div><div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Kensington</span><span class="event-tag">$15</span></div><span class="btn btn-dark btn-sm" style="margin-top:auto">Sign Up & Pay →</span></div>
-      <div class="event-card"><div class="event-date">Sat, Apr 12 · 2:00–4:00 pm</div><div class="event-name">Meal Prep Made Easy — Part 1</div><div class="event-desc">Learn practical meal prep skills together. Share recipes, build habits, eat well.</div><div class="event-tags"><span class="event-tag hl">Workshop</span><span class="event-tag">Life Skills</span><span class="event-tag">$20</span></div><span class="btn btn-dark btn-sm" style="margin-top:auto">Sign Up & Pay →</span></div>
-      <div class="event-card"><div class="event-date">Sun, Apr 20 · 11:00 am</div><div class="event-name">Slow Sunday Journaling</div><div class="event-desc">Creative reflection and mindfulness journaling at a sunny café. No agenda, just presence.</div><div class="event-tags"><span class="event-tag">Slow Living</span><span class="event-tag">Free</span></div><span class="btn btn-outline btn-sm" style="margin-top:auto">Sign Up →</span></div>
-      <div class="event-card"><div class="event-date">Sat, Apr 26 · 1:00 pm</div><div class="event-name">Photography Walk — Distillery</div><div class="event-desc">A visual storytelling walk through the Distillery District. Bring your phone or camera.</div><div class="event-tags"><span class="event-tag">Visual Storytelling</span><span class="event-tag">Free</span></div><span class="btn btn-outline btn-sm" style="margin-top:auto">Sign Up →</span></div>
-      <div class="event-card"><div class="event-date">Sat, May 3 · 1:00–3:30 pm</div><div class="event-name">Bad Artist Session — Spring Edition</div><div class="event-desc">Our monthly flagship event returns. This time: botanical prompts and open media.</div><div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Annex</span><span class="event-tag">$15</span></div><span class="btn btn-dark btn-sm" style="margin-top:auto">Sign Up & Pay →</span></div>
-      <div class="event-card"><div class="event-date">Sat, May 10 · 2:00–4:00 pm</div><div class="event-name">Home Organizing Clinic</div><div class="event-desc">A hands-on workshop on practical decluttering and setting up systems you'll actually use.</div><div class="event-tags"><span class="event-tag hl">Workshop</span><span class="event-tag">$20</span></div><span class="btn btn-dark btn-sm" style="margin-top:auto">Sign Up & Pay →</span></div>
+      <div class="event-card"><img class="event-thumb" src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=500,height=500/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"><div class="event-date">Sun, Sep 27 · 1:00–3:30 pm</div><div class="event-name">So You Think You're a Bad Artist? Ep.17</div><div class="event-desc">Self-guided art at a cosy café. Colour pencil, markers, oil pastel — you choose. Prompts if you want them. All levels welcome. Co-hosted with Jen.</div><div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Location on RSVP</span><span class="event-tag">$12</span></div><a class="btn btn-dark btn-sm" href="https://luma.com/swzvlct9" target="_blank" rel="noopener" style="margin-top:auto">Sign Up & Pay →</a></div>
+      <div class="event-card"><img class="event-thumb" src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=500,height=500/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"><div class="event-date">Sun, Oct 11 · 1:00–3:30 pm</div><div class="event-name">So You Think You're a Bad Artist? Ep.18</div><div class="event-desc">Self-guided art at a cosy café. Colour pencil, markers, oil pastel — you choose. Prompts if you want them. All levels welcome.</div><div class="event-tags"><span class="event-tag hl">Flagship</span><span class="event-tag">Shuyi Tealicious</span><span class="event-tag">$12</span></div><a class="btn btn-dark btn-sm" href="https://luma.com/8wfrulwf" target="_blank" rel="noopener" style="margin-top:auto">Sign Up & Pay →</a></div>
     </div>
   </section>
-  <section style="background:var(--navy);padding:64px 56px;border-top:1px solid rgba(255,255,255,.06)">
+  <section id="past-events" class="pad" style="background:var(--navy);border-top:1px solid rgba(255,255,255,.06)">
     <div class="navy-eyebrow">Archive</div>
-    <div class="navy-title" style="font-size:clamp(32px,4vw,52px);margin-bottom:10px">PAST EVENTS</div>
+    <div class="navy-title" style="font-size:clamp(32px,4vw,50px);margin-bottom:10px">PAST EVENTS</div>
     <div class="past-grid">
-      <div class="past-card"><div class="pe-thumb">🎨</div><div class="pe-date">March 2025</div><div class="pe-name">Bad Artist Session — Spring</div><div class="pe-desc">22 strangers, 22 works, one cosy café.</div><div class="pe-count">22 attendees</div></div>
-      <div class="past-card"><div class="pe-thumb">🍜</div><div class="pe-date">February 2025</div><div class="pe-name">Meal Prep Workshop #1</div><div class="pe-desc">Batch cooking and pantry staples shared.</div><div class="pe-count">16 attendees</div></div>
-      <div class="past-card"><div class="pe-thumb">📷</div><div class="pe-date">January 2025</div><div class="pe-name">Photography Walk — Chinatown</div><div class="pe-desc">One neighbourhood, twelve photographers.</div><div class="pe-count">12 attendees</div></div>
-      <div class="past-card"><div class="pe-thumb">✏️</div><div class="pe-date">December 2024</div><div class="pe-name">Holiday Bad Artist Session</div><div class="pe-desc">Festive prompts and warm drinks.</div><div class="pe-count">30 attendees · Sold out</div></div>
+      <a class="past-card" href="https://luma.com/8tivbx2w" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/4r/0059c434-0dd3-4214-a5de-2c556038c155.jpg" alt="" loading="lazy"></div><div class="pe-date">Sep 13, 2026</div><div class="pe-name">Bad Artist? Ep.16</div><div class="pe-desc">Self-guided art at BKookies Cafe.</div><div class="pe-count">11 guests</div></a>
+      <a class="past-card" href="https://luma.com/6le3cz6r" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/tw/4d29c5b1-9238-4d2b-a51e-bcace04a9f4a.jpg" alt="" loading="lazy"></div><div class="pe-date">Aug 30, 2026</div><div class="pe-name">Bad Artist? Ep.15</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">10 guests</div></a>
+      <a class="past-card" href="https://luma.com/8ljg7zse" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/gallery-images/7t/2758125c-8e84-4ff7-9dd9-a018bd0024ba.png" alt="" loading="lazy"></div><div class="pe-date">Aug 20, 2026</div><div class="pe-name">Toronto 20s Social Meetup</div><div class="pe-desc">A chill evening at Future Bistro for twenty-somethings to widen their circle.</div><div class="pe-count">10 guests</div></a>
+      <a class="past-card" href="https://luma.com/x29ggsgb" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/1u/6a6fc5d8-c784-4390-8555-4f104e7af75c.jpg" alt="" loading="lazy"></div><div class="pe-date">Aug 16, 2026</div><div class="pe-name">Bad Artist? Ep.14</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">7 guests</div></a>
+      <a class="past-card" href="https://luma.com/knuatunb" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/pz/741999f6-7da2-4a32-b81a-93d5ce4ea59f.jpg" alt="" loading="lazy"></div><div class="pe-date">Aug 2, 2026</div><div class="pe-name">Bad Artist? Ep.13</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">11 guests</div></a>
+      <a class="past-card" href="https://luma.com/fy0cb6nk" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/88/84806ee5-3ddd-49df-8a6f-b47321b39f7e.jpg" alt="" loading="lazy"></div><div class="pe-date">Jul 19, 2026</div><div class="pe-name">Wendy's Mini Hobby Hop 2</div><div class="pe-desc">Two community-led workshops to try something new and meet new people.</div><div class="pe-count">9 guests</div></a>
+      <a class="past-card" href="https://luma.com/m2ilnqfz" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/ma/092f4d60-cce2-4b64-9eb0-4dba038ded22.jpg" alt="" loading="lazy"></div><div class="pe-date">Jul 19, 2026</div><div class="pe-name">Bad Artist? Ep.12</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">4 guests</div></a>
+      <a class="past-card" href="https://luma.com/oc0k2hbn" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/ma/092f4d60-cce2-4b64-9eb0-4dba038ded22.jpg" alt="" loading="lazy"></div><div class="pe-date">Jul 5, 2026</div><div class="pe-name">Bad Artist? Ep.11</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">9 guests</div></a>
+      <a class="past-card" href="https://luma.com/79jorhkr" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/a7/364bc871-bf8c-43ab-beae-a9477d7c313b.png" alt="" loading="lazy"></div><div class="pe-date">Jun 21, 2026</div><div class="pe-name">Wendy's Mini Hobby Hop</div><div class="pe-desc">Two community-led workshops celebrating the hobbies in our community.</div><div class="pe-count">18 guests</div></a>
+      <a class="past-card" href="https://luma.com/w1r1olmu" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/ma/092f4d60-cce2-4b64-9eb0-4dba038ded22.jpg" alt="" loading="lazy"></div><div class="pe-date">Jun 21, 2026</div><div class="pe-name">Bad Artist? Ep.10</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">16 guests</div></a>
+      <a class="past-card" href="https://luma.com/g2dn21ba" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/uploads/b3/6294bb09-d503-42cb-bf19-3dcb07f425f8.jpg" alt="" loading="lazy"></div><div class="pe-date">Jun 7, 2026</div><div class="pe-name">Bad Artist? Ep.9</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">11 guests</div></a>
+      <a class="past-card" href="https://luma.com/xah1sehl" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">May 24, 2026</div><div class="pe-name">Bad Artist? Ep.8</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">7 guests</div></a>
+      <a class="past-card" href="https://luma.com/qvo7spql" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">May 10, 2026</div><div class="pe-name">Bad Artist? Ep.7</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">11 guests</div></a>
+      <a class="past-card" href="https://luma.com/ouddigix" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">Apr 26, 2026</div><div class="pe-name">Bad Artist? Ep.6</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">13 guests</div></a>
+      <a class="past-card" href="https://luma.com/263k5vrq" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">Apr 12, 2026</div><div class="pe-name">Bad Artist? Ep.5</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">7 guests</div></a>
+      <a class="past-card" href="https://luma.com/kzkxzfja" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">Mar 29, 2026</div><div class="pe-name">Bad Artist? Ep.4</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">15 guests</div></a>
+      <a class="past-card" href="https://luma.com/08pq17uh" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">Mar 15, 2026</div><div class="pe-name">Bad Artist? Ep.3</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">16 guests</div></a>
+      <a class="past-card" href="https://luma.com/u6l77vh3" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/sh/917ef023-4bf4-4d83-b429-268fb4b5d84a.png" alt="" loading="lazy"></div><div class="pe-date">Feb 22, 2026</div><div class="pe-name">Bad Artist? Ep.2</div><div class="pe-desc">Self-guided art at Shuyi Tealicious.</div><div class="pe-count">7 guests</div></a>
+      <a class="past-card" href="https://luma.com/8x9hzbqj" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/ks/d3cde3af-67f4-489c-8894-87e926ad9489.jpg" alt="" loading="lazy"></div><div class="pe-date">Feb 8, 2026</div><div class="pe-name">Bad Artist? Ep.1</div><div class="pe-desc">Where it all started — self-guided art at Little Pebbles Cafe.</div><div class="pe-count">18 guests</div></a>
+      <a class="past-card" href="https://www.sassylav.com/wendymosaicstories" target="_blank" rel="noopener"><div class="pe-thumb">📖</div><div class="pe-date">Nov 30, 2025</div><div class="pe-name">Three-Week Storytelling Workshop</div><div class="pe-desc">A storytelling series with Mosaic Stories.</div></a>
+      <a class="past-card" href="https://luma.com/p8cg8ktb" target="_blank" rel="noopener"><div class="pe-thumb"><img src="https://images.lumacdn.com/cdn-cgi/image/format=auto,fit=cover,dpr=2,quality=80,width=300,height=300/event-covers/oq/5855b4b4-f843-473c-bdc6-315918e494d2.png" alt="" loading="lazy"></div><div class="pe-date">Nov 29, 2025</div><div class="pe-name">Hobby Hop 2 + Flea Market</div><div class="pe-desc">Workshops, makers and a flea market at Wychwood Barns.</div></a>
     </div>
   </section>
   <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
@@ -637,14 +640,16 @@ function toggleMenu(force){
   btn.setAttribute('aria-expanded',open);
 }
 
-function showPage(id){
+function showPage(id,anchor){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   const navEl=document.getElementById('nav-'+id);
   if(navEl)navEl.classList.add('active');
   toggleMenu(false);
-  window.scrollTo({top:0,behavior:'smooth'});
+  const target=anchor&&document.getElementById(anchor);
+  if(target)target.scrollIntoView({behavior:'smooth'});
+  else window.scrollTo({top:0,behavior:'smooth'});
 }
 
 // ── MAIL SUBSCRIPTION ──
