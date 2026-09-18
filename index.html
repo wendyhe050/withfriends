@@ -214,11 +214,13 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
   .hero{grid-template-columns:1fr}.hero-left{padding:40px 22px}
   .hero-right{height:auto;aspect-ratio:4/3}
   .navy-band{grid-template-columns:1fr;padding:40px 22px}.nc-wrap{display:none}.navy-content{padding-left:0}
-  .navy-photo{position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;width:100%!important;height:auto;aspect-ratio:4/3;margin-bottom:24px}
+  .navy-wrap{display:flex;flex-direction:column}.navy-wrap .navy-band{order:1}.navy-wrap .features-band{order:2}
+  .navy-photo{order:3;position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;width:100%!important;height:auto;aspect-ratio:4/5}
+  .navy-photo img{object-position:center 62%!important}
   .features-band{grid-template-columns:1fr;padding:0 22px 40px}
   .pad,.pad-sm,.mail-section,.page-header{padding:40px 22px}
   .mail-section,.bookings-grid,.contact-grid,.story-grid,.footer-top{grid-template-columns:1fr;gap:28px}
-  .contact-right{position:static;width:100%;height:auto;aspect-ratio:4/3}
+  .contact-right{position:static;width:calc(100% + 44px);margin:12px -22px -40px;height:auto;aspect-ratio:4/3}
   .contact-right img{object-fit:cover!important;object-position:center!important}
   .photo-credit{font-size:10px;padding:20px 12px 8px}
 }
@@ -333,7 +335,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
     </div>
   </header>
 
-  <div style="position:relative;background:var(--navy);overflow:hidden">
+  <div class="navy-wrap" style="position:relative;background:var(--navy);overflow:hidden">
     <!-- Image spanning full height of both navy-band and features-band -->
     <div class="navy-photo" style="position:absolute;left:0;top:0;bottom:0;width:316px;overflow:hidden">
       <img src="DSC_0707.jpg" alt="Community member at a third space" style="width:100%;height:100%;object-fit:cover;object-position:center top">
