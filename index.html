@@ -28,6 +28,14 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .nav-link.active{color:var(--navy);border-bottom:2px solid var(--navy)}
 .nav-link.cta{background:var(--navy);color:var(--white);padding:10px 22px;border-radius:999px;margin-right:0;letter-spacing:1px;margin-left:16px}
 .nav-link.cta:hover{background:var(--navy2)}
+.nav-toggle{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:12px;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);transition:transform .2s,opacity .2s}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* PHOTO CREDIT */
+.photo-credit{position:absolute;bottom:0;left:0;right:0;padding:24px 14px 10px;text-align:right;font-family:var(--serif);font-size:11px;line-height:1.45;color:rgba(255,255,255,.62);background:linear-gradient(to top,rgba(0,0,0,.45),transparent);pointer-events:none}
 
 /* SHARED BUTTONS */
 .btn{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 26px;border-radius:999px;text-decoration:none;cursor:pointer;transition:all .15s;border:none}
@@ -153,7 +161,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .mail-note{font-family:var(--serif);font-style:italic;font-size:12px;color:rgba(240,236,223,.3);margin-top:10px;text-align:center}
 
 /* BOOKINGS */
-.bookings-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.bookings-grid,.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .bookings-items{display:flex;flex-direction:column}
 .booking-item{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px solid var(--linen2);font-family:var(--serif);font-size:15px;color:#4a4236;line-height:1.5}
 .booking-item:last-child{border:none}
@@ -195,13 +203,24 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .footer-social a:hover{color:var(--gold)}
 
 @media(max-width:768px){
-  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:40px 22px}
-  .site-nav{padding:0 20px}.nav-links{overflow-x:auto;gap:0}
+  .site-nav{padding:0 20px;flex-wrap:wrap}
+  .nav-toggle{display:flex}
+  .nav-links{display:none;flex-direction:column;align-items:stretch;justify-content:flex-start;flex-basis:100%;flex-wrap:nowrap;padding-bottom:12px}
+  .nav-links.open{display:flex}
+  .nav-link{padding:14px 4px;border-bottom:1px solid var(--linen2)}
+  .nav-link.active{border-bottom:1px solid var(--linen2)}
+  .nav-link.cta{margin:12px 0 0;text-align:center;padding:14px 22px;border-bottom:none}
+
+  .hero{grid-template-columns:1fr}.hero-left{padding:40px 22px}
+  .hero-right{height:auto;aspect-ratio:4/3}
   .navy-band{grid-template-columns:1fr;padding:40px 22px}.nc-wrap{display:none}.navy-content{padding-left:0}
+  .navy-photo{position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;width:100%!important;height:auto;aspect-ratio:4/3;margin-bottom:24px}
   .features-band{grid-template-columns:1fr;padding:0 22px 40px}
   .pad,.pad-sm,.mail-section,.page-header{padding:40px 22px}
-  .mail-section,.bookings-grid,.contact-grid,.footer-top{grid-template-columns:1fr;gap:28px}
-  .contact-right{display:none}
+  .mail-section,.bookings-grid,.contact-grid,.story-grid,.footer-top{grid-template-columns:1fr;gap:28px}
+  .contact-right{position:static;width:100%;height:auto;aspect-ratio:4/3}
+  .contact-right img{object-fit:cover!important;object-position:center!important}
+  .photo-credit{font-size:10px;padding:20px 12px 8px}
 }
 
 /* ── INSTAGRAM BUTTON ── */
@@ -277,7 +296,8 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 
 <nav class="site-nav">
   <span class="nav-brand" onclick="showPage('home')">with friends</span>
-  <div class="nav-links">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="nav-links">
     <span class="nav-link active" id="nav-home" onclick="showPage('home')">Home</span>
     <span class="nav-link" id="nav-events" onclick="showPage('events')">Events</span>
     <span class="nav-link" id="nav-workshops" onclick="showPage('workshops')" style="display:none">Workshops</span>
@@ -306,7 +326,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
     </div>
     <div class="hero-right">
       <img src="DSC_0635.jpg" alt="Friends gathering at a third space" style="width:100%;height:100%;object-fit:cover;display:block">
-      <div style="position:absolute;bottom:10px;right:14px;text-align:right;font-family:var(--serif);font-size:11px;color:rgba(255,255,255,.5)">
+      <div class="photo-credit">
         <div>photo credit: @gaya.psd</div>
         <div>shown here: Ruhao, Isabel, Adam</div>
       </div>
@@ -315,9 +335,9 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 
   <div style="position:relative;background:var(--navy);overflow:hidden">
     <!-- Image spanning full height of both navy-band and features-band -->
-    <div style="position:absolute;left:0;top:0;bottom:0;width:316px;overflow:hidden">
+    <div class="navy-photo" style="position:absolute;left:0;top:0;bottom:0;width:316px;overflow:hidden">
       <img src="DSC_0707.jpg" alt="Community member at a third space" style="width:100%;height:100%;object-fit:cover;object-position:center top">
-      <div style="position:absolute;bottom:10px;right:14px;text-align:right;font-family:var(--serif);font-size:11px;color:rgba(255,255,255,.5)">
+      <div class="photo-credit">
         <div>photo credit: @gaya.psd</div>
         <div>shown here: Ishita</div>
       </div>
@@ -434,7 +454,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
       <div><div class="section-eyebrow">Get in touch</div><div class="section-title">CONTACT US</div><div class="contact-details"><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text">Toronto, Ontario<br>Canada</div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><br><a href="https://luma.com/sir.tisawendys" target="_blank" rel="noopener">Events on Luma</a><br><a href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.zeffy.com/en-CA/ticketing/sir-this-is-a-wendys-merch-shop" target="_blank" rel="noopener">Shop Stickers</a><br><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a><br><a href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate to the Community</a></div></div></div></div>
       <div></div>
     </div>
-    <div class="contact-right"><img src="contact-photo.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
+    <div class="contact-right"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
   </section>
 
   <footer class="site-footer">
@@ -568,7 +588,7 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 <div class="page" id="page-about">
   <div class="page-header"><div class="page-header-eyebrow">Who we are</div><div class="page-header-title">ABOUT US</div><p class="page-header-body">We started as a group of friends wanting to stay connected to our passions. Now we run art events, life skills workshops, and community clubs at cafés across Toronto.</p></div>
   <section class="pad" style="background:var(--white)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start">
+    <div class="story-grid">
       <div>
         <div class="section-eyebrow">Our story</div>
         <div class="section-title" style="font-size:clamp(32px,4vw,52px)">LEARN AND CREATE</div>
@@ -599,19 +619,29 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
       <div><div class="section-eyebrow">Get in touch</div><div class="section-title">CONTACT US</div><div class="contact-details"><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text">Toronto, Ontario<br>Canada</div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><br><a href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><br><a href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.zeffy.com/en-CA/ticketing/sir-this-is-a-wendys-merch-shop" target="_blank" rel="noopener">Shop Stickers</a><br><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><br><a href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate to the Community</a></div></div></div></div>
       <div></div>
     </div>
-    <div class="contact-right"><img src="contact-photo.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
+    <div class="contact-right"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
   </section>
   <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <script>
 // ── PAGE NAVIGATION ──
+function toggleMenu(force){
+  const links=document.getElementById('nav-links');
+  const btn=document.getElementById('nav-toggle');
+  const open=force!==undefined?force:!links.classList.contains('open');
+  links.classList.toggle('open',open);
+  btn.classList.toggle('open',open);
+  btn.setAttribute('aria-expanded',open);
+}
+
 function showPage(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link').forEach(n=>n.classList.remove('active'));
   document.getElementById('page-'+id).classList.add('active');
   const navEl=document.getElementById('nav-'+id);
   if(navEl)navEl.classList.add('active');
+  toggleMenu(false);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
