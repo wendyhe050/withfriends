@@ -179,7 +179,8 @@ a.past-card{display:block;text-decoration:none}
 .contact-text{font-family:var(--serif);font-size:15px;line-height:1.75;color:#4a4236}
 .contact-text a{color:var(--navy);text-decoration:none}
 .contact-text a:hover{text-decoration:underline}
-.contact-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden}
+.contact-right{position:absolute;right:0;top:0;bottom:0;width:42%;overflow:hidden;container-type:size}
+.contact-photo{position:absolute;right:0;top:50%;transform:translateY(-50%);width:min(100cqw,calc(100cqh*868/970));aspect-ratio:868/970}
 .cr-rect1{position:absolute;width:180px;height:200px;background:var(--sage);opacity:.35;top:30px;right:80px;transform:rotate(2deg)}
 .cr-rect2{position:absolute;width:140px;height:160px;background:var(--linen2);opacity:.9;top:60px;right:140px;transform:rotate(-3deg)}
 .cr-rect3{position:absolute;width:100px;height:120px;background:var(--rust);opacity:.22;bottom:40px;right:60px;transform:rotate(5deg)}
@@ -225,6 +226,7 @@ a.past-card{display:block;text-decoration:none}
   .mail-section,.bookings-grid,.contact-grid,.story-grid,.footer-top{grid-template-columns:1fr;gap:28px}
   .contact-right{position:static;width:calc(100% + 44px);margin:12px -22px -40px;height:auto;aspect-ratio:4/3}
   .contact-right img{object-fit:cover!important;object-position:center!important}
+  .contact-photo{position:relative;top:auto;transform:none;width:100%;height:100%;aspect-ratio:auto}
   .photo-credit{font-size:10px;padding:20px 12px 8px}
 }
 
@@ -454,7 +456,12 @@ a.past-card{display:block;text-decoration:none}
       <div><div class="section-eyebrow">Get in touch</div><div class="section-title">CONTACT US</div><div class="contact-details"><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text">Toronto, Ontario<br>Canada</div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><br><a href="https://luma.com/sir.tisawendys" target="_blank" rel="noopener">Events on Luma</a><br><a href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.zeffy.com/en-CA/ticketing/sir-this-is-a-wendys-merch-shop" target="_blank" rel="noopener">Shop Stickers</a><br><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a><br><a href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate to the Community</a></div></div></div></div>
       <div></div>
     </div>
-    <div class="contact-right"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
+    <div class="contact-right"><div class="contact-photo"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block">
+      <div class="photo-credit">
+        <div>photo credit: @itsjuan.pablo</div>
+        <div>shown here: Sreya</div>
+      </div>
+    </div></div>
   </section>
 
   <footer class="site-footer">
@@ -634,7 +641,12 @@ a.past-card{display:block;text-decoration:none}
       <div><div class="section-eyebrow">Get in touch</div><div class="section-title">CONTACT US</div><div class="contact-details"><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text">Toronto, Ontario<br>Canada</div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><br><a href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><br><a href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div><div class="contact-block"><span class="contact-asterisk">✳</span><div class="contact-text"><a href="https://www.zeffy.com/en-CA/ticketing/sir-this-is-a-wendys-merch-shop" target="_blank" rel="noopener">Shop Stickers</a><br><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><br><a href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate to the Community</a></div></div></div></div>
       <div></div>
     </div>
-    <div class="contact-right"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block"></div>
+    <div class="contact-right"><div class="contact-photo"><img src="Contact-Photo-1.png" alt="Community member at a With Friends event" style="width:100%;height:100%;object-fit:contain;object-position:right center;display:block">
+      <div class="photo-credit">
+        <div>photo credit: @itsjuan.pablo</div>
+        <div>shown here: Sreya</div>
+      </div>
+    </div></div>
   </section>
   <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:hello@withfriends.ca">hello@withfriends.ca</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
