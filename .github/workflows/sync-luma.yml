@@ -1,0 +1,30 @@
+name: Sync Luma events
+
+on:
+  schedule:
+    - cron: "17 9 * * *" # daily, ~5am Toronto
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/sync_luma.py
+      - name: Open a PR if the events changed
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git diff --quiet index.html && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B luma-sync
+          git commit -am "Sync events from Luma"
+          git push --force origin luma-sync
+          gh pr view luma-sync --json state -q .state | grep -q OPEN ||
+            gh pr create --base main --head luma-sync --title "Sync events from Luma" \
+              --body "Automated update of the event sections from the Luma calendar."
