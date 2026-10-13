@@ -5,11 +5,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>With Friends — Toronto</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--navy:#2a2620;--navy2:#3c3830;--linen:#f4f0e8;--linen2:#e8e2d8;--white:#faf8f4;--rust:#c88030;--sage:#9aaa80;--dusty:#c8bea8;--ink:#161410;--muted:#807868;--gold:#d4a040;
+:root{--navy:#2a2620;--navy2:#3c3830;--linen:#f4f0e8;--linen2:#e8e2d8;--white:#faf8f4;--rust:#c88030;--sage:#9aaa80;--dusty:#c8bea8;--ink:#161410;--muted:#807868;--gold:#d4a040;--brand:#2e56a8;--brand2:#244585;--brand-title:#294d97;--cta:var(--gold);--cta2:#b89858;--cta-text-light:var(--white);--accent-text:var(--ink);
 --serif:'Lora',serif;--sans:'Outfit',sans-serif}
 html{scroll-behavior:smooth}
 body{background:var(--linen);color:var(--ink);font-family:var(--serif);overflow-x:hidden}
@@ -21,13 +23,14 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 
 /* NAV */
 .site-nav{background:var(--white);border-bottom:1px solid var(--linen2);padding:0 48px;display:flex;align-items:center;min-height:58px;gap:0}
-.nav-brand{font-family:var(--serif);font-weight:700;font-style:italic;font-size:20px;color:var(--navy);margin-right:24px;text-decoration:none;padding:16px 0;flex-shrink:0;cursor:pointer}
+.nav-brand{display:flex;align-items:center;margin-right:24px;padding:6px 0;flex-shrink:0;cursor:pointer}
+.nav-brand img{height:52px;width:auto;display:block}
 .nav-links{display:flex;align-items:center;gap:0;flex:1;flex-wrap:wrap;justify-content:flex-end}
 .nav-link{font-family:var(--sans);font-size:15px;font-weight:500;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);padding:18px 14px;text-decoration:none;transition:color .12s;cursor:pointer;border:none;background:none;white-space:nowrap}
 .nav-link:hover{color:var(--navy)}
 .nav-link.active{color:var(--navy);border-bottom:2px solid var(--navy)}
-.nav-link.cta{background:var(--navy);color:var(--white);padding:10px 22px;border-radius:999px;margin-right:0;letter-spacing:1px;margin-left:16px}
-.nav-link.cta:hover{background:var(--navy2)}
+.nav-link.cta{background:var(--cta);color:var(--cta-text-light);padding:10px 22px;border-radius:999px;margin-right:0;letter-spacing:1px;margin-left:16px}
+.nav-link.cta:hover{background:var(--cta2)}
 .nav-toggle{display:none;margin-left:auto;background:none;border:none;cursor:pointer;padding:12px;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px}
 .nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);transition:transform .2s,opacity .2s}
 .nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -39,15 +42,15 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 
 /* SHARED BUTTONS */
 .btn{display:inline-block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:12px 26px;border-radius:999px;text-decoration:none;cursor:pointer;transition:all .15s;border:none}
-.btn-dark{background:var(--ink);color:var(--white)}.btn-dark:hover{background:var(--navy)}
-.btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}.btn-outline:hover{background:var(--navy);color:var(--white)}
-.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:#b89858}
-.btn-rust{background:var(--rust);color:var(--white)}.btn-rust:hover{opacity:.88}
+.btn-dark{background:var(--cta);color:var(--cta-text-light)}.btn-dark:hover{background:var(--cta2)}
+.btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--cta)}.btn-outline:hover{background:var(--cta);color:var(--cta-text-light)}
+.btn-gold{background:var(--cta);color:var(--ink)}.btn-gold:hover{background:var(--cta2)}
+.btn-rust{background:var(--cta);color:var(--ink)}.btn-rust:hover{background:var(--cta2)}
 .btn-sm{font-size:10px;padding:9px 18px;letter-spacing:1.5px}
 
 /* SHARED SECTION STYLES */
 .section-eyebrow{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-.section-title{font-family:var(--serif);font-weight:700;font-size:clamp(38px,5vw,64px);line-height:.95;letter-spacing:-1.5px;color:var(--navy);margin-bottom:18px}
+.section-title{font-family:var(--serif);font-weight:700;font-size:clamp(38px,5vw,64px);line-height:.95;letter-spacing:-1.5px;color:var(--brand-title);margin-bottom:18px}
 .section-body{font-family:var(--serif);font-size:16px;line-height:1.78;color:#4a4236}
 .section-body strong{font-weight:600;color:var(--ink)}
 .pad{padding:64px 56px}
@@ -57,8 +60,8 @@ header,nav,section,footer,div,ul,li{position:relative;z-index:1}
 .hero{background:var(--white);display:grid;grid-template-columns:1fr 1fr;min-height:560px;overflow:hidden;border-bottom:1px solid var(--linen2)}
 .hero-left{padding:52px 48px 52px 56px;display:flex;flex-direction:column;justify-content:space-between}
 .hero-org{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:24px}
-.hero-title-big{font-family:var(--serif);font-weight:700;font-size:clamp(48px,7vw,84px);line-height:.9;letter-spacing:-2px;color:var(--navy);display:block}
-.hero-title-accent{font-family:var(--serif);font-weight:700;font-size:clamp(48px,7vw,84px);line-height:.9;letter-spacing:-2px;color:var(--rust);display:block;margin-top:6px}
+.hero-title-big{font-family:var(--serif);font-weight:700;font-size:clamp(48px,7vw,84px);line-height:.9;letter-spacing:-2px;color:var(--brand-title);display:block}
+.hero-title-accent{font-family:var(--serif);font-weight:700;font-size:clamp(48px,7vw,84px);line-height:.9;letter-spacing:-2px;color:var(--accent-text);display:block;margin-top:6px}
 .hero-tagline{font-family:var(--sans);font-size:11px;font-weight:400;letter-spacing:2px;text-transform:uppercase;color:var(--ink);margin-top:14px}
 .hero-note{margin-top:16px;font-family:var(--serif);font-size:14px;color:var(--muted);line-height:1.65}
 .hero-right{position:relative;overflow:hidden;background:var(--ink)}
@@ -145,7 +148,7 @@ a.past-card{display:block;text-decoration:none}
 .creator-card:hover{transform:translateY(-3px)}
 .creator-avatar{width:50px;height:50px;border-radius:50%;background:var(--linen2);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px}
 .creator-name{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--navy);margin-bottom:2px}
-.creator-type{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--rust);margin-bottom:7px}
+.creator-type{font-family:var(--serif);font-style:italic;font-size:13px;color:var(--accent-text);margin-bottom:7px}
 .creator-bio{font-family:var(--serif);font-size:13px;line-height:1.62;color:#5a4a38;flex:1;margin-bottom:12px}
 .creator-footer{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:auto}
 
@@ -211,7 +214,8 @@ textarea.contact-input{resize:vertical;min-height:96px}
 .footer-link{font-family:var(--sans);font-size:12px;font-weight:400;letter-spacing:1px;text-transform:uppercase;color:rgba(240,236,223,.55);text-decoration:none;transition:color .12s;background:none;border:none;cursor:pointer;text-align:left}
 .footer-link:hover{color:var(--gold)}
 .footer-bottom{display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,.08);padding-top:20px;flex-wrap:wrap;gap:12px}
-.footer-brand{font-family:var(--serif);font-weight:700;font-style:italic;font-size:17px;color:rgba(240,236,223,.4)}
+.footer-brand{display:flex;align-items:center}
+.footer-brand img{height:48px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.5}
 .footer-copy{font-family:var(--serif);font-style:italic;font-size:13px;color:rgba(240,236,223,.3)}
 .footer-social{display:flex;gap:10px;align-items:center}
 .footer-social a{font-family:var(--sans);font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,236,223,.45);text-decoration:none;transition:color .12s}
@@ -256,7 +260,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
 .atb-thumb-count{position:absolute;bottom:8px;right:10px;background:rgba(22,20,16,.6);color:rgba(250,248,244,.9);font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:999px}
 .atb-info{padding:14px 16px 16px}
 .atb-name{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--navy);margin-bottom:2px}
-.atb-medium{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--rust);margin-bottom:6px}
+.atb-medium{font-family:var(--serif);font-style:italic;font-size:12px;color:var(--accent-text);margin-bottom:6px}
 .atb-hint{font-family:var(--sans);font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
 .showcase-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-top:4px}
 .showcase-card{position:relative;aspect-ratio:1;border-radius:12px;overflow:hidden;cursor:pointer;background:var(--linen2)}
@@ -283,7 +287,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
 .popup-avatar img{width:100%;height:100%;object-fit:cover}
 .popup-header-info{flex:1}
 .popup-name{font-family:var(--serif);font-weight:700;font-size:24px;color:var(--navy);line-height:1;margin-bottom:4px}
-.popup-medium{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--rust);margin-bottom:8px}
+.popup-medium{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--accent-text);margin-bottom:8px}
 .popup-bio{font-family:var(--serif);font-size:14px;line-height:1.65;color:#5a4a38;max-width:480px}
 .popup-header-actions{display:flex;gap:8px;align-items:center;flex-shrink:0;flex-wrap:wrap}
 .popup-close{background:none;border:1.5px solid var(--linen2);border-radius:999px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--muted);transition:all .12s;flex-shrink:0}
@@ -319,7 +323,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
 <body>
 
 <nav class="site-nav">
-  <span class="nav-brand" onclick="showPage('home')">with friends</span>
+  <span class="nav-brand" onclick="showPage('home')"><img src="logo.png" alt="With Friends Toronto"></span>
   <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links" onclick="toggleMenu()"><span></span><span></span><span></span></button>
   <div class="nav-links" id="nav-links">
     <span class="nav-link active" id="nav-home" onclick="showPage('home')">Home</span>
@@ -479,7 +483,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
       <div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><span class="footer-link" onclick="showPage('about')">Private Bookings</span><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a><a class="footer-link" href="https://www.zeffy.com/en-CA/ticketing/sir-this-is-a-wendys-merch-shop" target="_blank" rel="noopener">Shop Stickers</a></div></div>
       <div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/" target="_blank"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div><span class="btn btn-gold" style="margin-top:18px;display:inline-block">Donate ❤</span></div>
     </div>
-    <div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div>
+    <div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div>
   </footer>
 </div>
 
@@ -527,7 +531,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
       <!-- /luma:past -->
     </div>
   </section>
-  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a></div></div></div><div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <!-- ══ WORKSHOPS PAGE ══ -->
@@ -547,7 +551,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
       <div class="club-card"><span class="club-icon">🌿</span><div class="club-name">Plant Care & Growing</div><div class="club-desc">Learn to keep plants alive and grow a little something — indoors, balcony, or community garden.</div><div class="club-footer"><span class="club-badge badge-soon">Coming Soon</span><span class="btn btn-outline btn-sm" style="margin-left:auto">Join Waitlist</span></div></div>
     </div>
   </section>
-  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <!-- ══ CLUBS PAGE ══ -->
@@ -563,7 +567,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
       <div class="club-card"><span class="club-icon">📚</span><div class="club-name">Passion Projects Circle</div><div class="club-desc">A recurring meetup for people building something on the side. Share your project, get real feedback, stay accountable with friends. Free to attend.</div><div class="club-footer"><span class="club-badge badge-free">Free</span><span class="btn btn-outline btn-sm" style="margin-left:auto">Sign Up →</span></div></div>
     </div>
   </section>
-  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <!-- ══ CREATIVES PAGE ══ -->
@@ -618,7 +622,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
 </div>
   </section>
 
-  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys" target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys" target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/" target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd" target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <!-- ══ ABOUT PAGE ══ -->
@@ -672,7 +676,7 @@ textarea.contact-input{resize:vertical;min-height:96px}
       </div>
     </div></div>
   </section>
-  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand">with friends</span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
+  <footer class="site-footer"><div class="footer-top"><div><div class="footer-col-title">Pages</div><div class="footer-links"><span class="footer-link" onclick="showPage('home')">Home</span><span class="footer-link" onclick="showPage('events')">Events</span><span class="footer-link" onclick="showPage('workshops')">Workshops</span><span class="footer-link" onclick="showPage('clubs')">Clubs</span><span class="footer-link" onclick="showPage('creatives')">Creatives' Work</span><span class="footer-link" onclick="showPage('about')">About Us</span></div></div><div><div class="footer-col-title">Community</div><div class="footer-links"><a class="footer-link" href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://www.zeffy.com/en-CA/donation-form/donate-to-our-community-fund" target="_blank" rel="noopener">Donate</a></div></div><div><div class="footer-col-title">Find us</div><div class="footer-links"><a class="footer-link" href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a class="footer-link" href="https://luma.com/sir.tisawendys"target="_blank" rel="noopener">Events on Luma</a><a class="footer-link" href="mailto:withfriendsto@gmail.com">withfriendsto@gmail.com</a></div></div></div><div class="footer-bottom"><span class="footer-brand"><img src="logo.png" alt="With Friends Toronto"></span><div class="footer-social"><a href="https://www.instagram.com/sir_tisawendys/"target="_blank" rel="noopener">Instagram</a><a href="https://pinto-shrimp-b83.notion.site/sir-this-is-a-wendy-s-21e0277f2b0c80acacfcfe6edb5112bd"target="_blank" rel="noopener">Community Agreement</a></div><span class="footer-copy">Toronto · 2024</span></div></footer>
 </div>
 
 <script>
